@@ -1,15 +1,22 @@
 {
   "scripts": {
-    "dev": "openscad dist/output.scad & nodemon --watch src --exec 'node src/index.js'",
-    "render": "node src/index.js && openscad dist/output.scad -o dist/output.stl"
+    "dev": "nodemon --watch src --exec \"ts-node src/index.ts\"",
+    "dev:onchange": "onchange 'src/**/*.ts' -- ts-node src/index.ts"
   },
   "dependencies": {
     "nodemon": "^2.0.7",
-    "scad-js": "latest"
+    "onchange": "^7.1.0",
+    "scad-js": "latest",
+    "scad-ts": "^0.2.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
   },
   "name": "scad-js-starter",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "repository": "git@github.com:20lives/scad-js-starter.git",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.11.15"
+  }
 }
